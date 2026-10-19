@@ -21,6 +21,9 @@ The game follows basic Blackjack rules, including card dealing, Hit or Stand dec
 - Console Application
 
 ## Features
+- Automatically stands when the player's hand reaches 21.
+- Recognises a natural Blackjack (an Ace and a 10-value card dealt initially).
+- Distinguishes a natural Blackjack from an ordinary 21 when determining the winner.
 
 ### Card Deck
 - Creates a deck of playing cards.
