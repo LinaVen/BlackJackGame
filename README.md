@@ -64,9 +64,9 @@ The game follows basic Blackjack rules, including card dealing, Hit or Stand dec
 
 1. Download or clone this repository.
 2. Open `BlackjackGame.sln` in Visual Studio 2022.
-3. Build the solution.
-4. Run the application.
-5. Follow the instructions displayed in the console.
+3. Build the solution using `Ctrl + Shift + B`.
+4. Press `Ctrl + F5` to run the application without debugging.
+5. Follow the instructions displayed in the console to play Blackjack.
 
 ## Programming Concepts Demonstrated
 
