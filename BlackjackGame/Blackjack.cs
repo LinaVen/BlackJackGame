@@ -25,10 +25,19 @@ namespace BlackjackGame
         //Set up the player and dealer.
         public void Play()
         {
-            Console.WriteLine("Welcome ro Blackjack!");
+            Console.WriteLine("Welcome to Blackjack!");
 
-            DealInitialCards(); //Github Copilot suggested to add 30 to 34 lines of code.
-            PlayerTurn();
+            DealInitialCards();
+
+            // Automatically stand if the player starts with 21.
+            if (player.GetHandValue() == 21)
+            {
+                Console.WriteLine("Blackjack! You have 21. Automatically standing.");
+            }
+            else
+            {
+                PlayerTurn();
+            }
             if (!player.IsBusted)
             {
                 DealerTurn();
@@ -60,6 +69,12 @@ namespace BlackjackGame
                 {
                     player.AddCard(deck.Deal());
                     player.ShowHand();
+                    // Automatically stand when the player reaches 21.
+                    if (player.GetHandValue() == 21)
+                    {
+                        Console.WriteLine("You reached 21! Automatically standing.");
+                        break;
+                    }
                     if (player.IsBusted)
                     {
                         Console.WriteLine("You busted! Dealer wins!");
@@ -88,10 +103,7 @@ namespace BlackjackGame
                 dealer.AddCard(deck.Deal());
                 dealer.ShowHand();
             }
-            if (dealer.IsBusted)
-            {
-                Console.WriteLine("Dealer busted! You win!");
-            }
+            
         }
 
 
@@ -101,11 +113,31 @@ namespace BlackjackGame
             Console.WriteLine("\nFinal results: ");
             player.ShowHand();
             dealer.ShowHand();
+            // Check whether either hand is a natural Blackjack.
+            bool playerBlackjack = player.Hand.Count == 2 &&
+                                   player.GetHandValue() == 21;
 
-            if (player.IsBusted)
+            bool dealerBlackjack = dealer.Hand.Count == 2 &&
+                                   dealer.GetHandValue() == 21;
+
+            // A natural Blackjack beats an ordinary 21.
+            if (playerBlackjack && !dealerBlackjack)
+            {
+                Console.WriteLine("Blackjack! You win!");
+            }
+            else if (dealerBlackjack && !playerBlackjack)
+            {
+                Console.WriteLine("Dealer has Blackjack! Dealer wins!");
+            }
+            else if (player.IsBusted)
             {
                 Console.WriteLine("Dealer wins!");
             }
+            else if (dealer.IsBusted)
+            {
+                Console.WriteLine("You win! Dealer busted!");
+            }
+        
             else if (player.GetHandValue() > dealer.GetHandValue())
             {
                 Console.WriteLine("You win!");
