@@ -84,6 +84,22 @@ The game follows basic Blackjack rules, including card dealing, Hit or Stand dec
 
 This project helped develop practical skills in C# programming, including designing classes, managing program flow, implementing game rules, and organising code into reusable components.
 
+## Game Screenshots
+
+The screenshots below demonstrate different outcomes of the Blackjack game.
+
+### 1. Player Wins
+![Player Wins](screenshots/player-wins.png)
+
+### 2. Tie Game
+![Tie Game](screenshots/tie-game.png)
+
+### 3. Player Busted
+![Player Busted](screenshots/player-busted.png)
+
+### 4. Natural Blackjack
+![Natural Blackjack](screenshots/natural-blackjack.png)
+
 ## Author
 
 Lina Venckus (Venckuviene)
